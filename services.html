@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huduma — Kliniki Tiba Asili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+  section.services { padding: 70px 64px 100px; background: var(--paper); }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 10px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px 26px;
+    border-left: 5px solid var(--green);
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 36px rgba(0,0,0,0.12);
+  }
+  .service-card:nth-child(3n+2) { border-left-color: var(--red); }
+  .service-card:nth-child(3n) { border-left-color: #0E0E0C; }
+  .service-card__num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    color: var(--green);
+    margin-bottom: 14px;
+    letter-spacing: 0.06em;
+  }
+  .service-card h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .service-card p { font-size: 14px; color: #55554d; line-height: 1.55; margin-bottom: 14px; }
+  .service-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .service-card:nth-child(3n+2) .service-card__cta { color: var(--red); }
+  .service-card:nth-child(3n) .service-card__cta { color: #0E0E0C; }
+  .services-cta {
+    margin-top: 56px;
+    background: var(--black);
+    border-radius: 12px;
+    padding: 42px 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .services-cta h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--white);
+    max-width: 420px;
+  }
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
+  <nav>
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" class="active" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="header-right">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+      <button type="button" id="langEn" data-lang="en">EN</button>
+    </div>
+    <a class="btn-book" href="contact.html" data-i18n="bookBtn">Panga miadi</a>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-logo-badge"><img src="logo.jpg" alt="Dr Taz Genius"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow" data-i18n="svcEyebrow">HUDUMA</div>
+    <h1 data-i18n="svcTitle">Huduma Zetu</h1>
+    <p data-i18n="svcSub">Tunachanganya utaalamu wa Dr Taz na dawa za asili kukupa huduma kamili ya afya.</p>
+  </div>
+</div>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="services-grid">
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Ushauri%20wa%20Afya%20ya%20Asili" target="_blank" rel="noopener">
+        <div class="service-card__num">01</div>
+        <h3 data-i18n="svc1Title">Ushauri wa Afya ya Asili</h3>
+        <p data-i18n="svc1Desc">Tathmini ya awali ya matatizo yako ya kiafya na ushauri wa dawa za asili zinazofaa kwako.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Matibabu%20ya%20Mimea%20Asilia" target="_blank" rel="noopener">
+        <div class="service-card__num">02</div>
+        <h3 data-i18n="svc2Title">Matibabu ya Mimea Asilia</h3>
+        <p data-i18n="svc2Desc">Mipango maalum ya matibabu kwa kutumia dawa za asili, ikifuatiliwa hatua kwa hatua.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Afya%20ya%20Uzazi" target="_blank" rel="noopener">
+        <div class="service-card__num">03</div>
+        <h3 data-i18n="svc3Title">Afya ya Uzazi</h3>
+        <p data-i18n="svc3Desc">Huduma za asili zinazohusiana na uzazi, ujauzito na afya ya mfumo wa uzazi.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Huduma%20za%20VIP%20na%20Nyumbani" target="_blank" rel="noopener">
+        <div class="service-card__num">04</div>
+        <h3 data-i18n="svc4Title">Huduma za VIP na Nyumbani</h3>
+        <p data-i18n="svc4Desc">Huduma ya faragha zaidi kwa wateja wanaohitaji ushauri na matibabu nyumbani.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Ufuatiliaji%20wa%20Maendeleo" target="_blank" rel="noopener">
+        <div class="service-card__num">05</div>
+        <h3 data-i18n="svc5Title">Ufuatiliaji wa Maendeleo</h3>
+        <p data-i18n="svc5Desc">Tunafuatilia maendeleo yako baada ya kuanza matibabu ili kuhakikisha matokeo bora.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+      <a class="service-card" href="https://wa.me/255734191919?text=Habari%2C%20ningependa%20kuuliza%20kuhusu%20huduma%3A%20Ushauri%20kwa%20WhatsApp" target="_blank" rel="noopener">
+        <div class="service-card__num">06</div>
+        <h3 data-i18n="svc6Title">Ushauri kwa WhatsApp</h3>
+        <p data-i18n="svc6Desc">Uliza maswali na pata ushauri wa awali moja kwa moja kupitia WhatsApp.</p>
+        <div class="service-card__cta" data-i18n="svcCardCta">Wasiliana kwa WhatsApp →</div>
+      </a>
+    </div>
+    <div class="services-cta">
+      <h3 data-i18n="svcCtaTitle">Una swali kuhusu huduma zetu? Wasiliana nasi leo.</h3>
+      <a class="btn-primary" href="contact.html" data-i18n="svcCtaBtn">Panga Miadi</a>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-col">
+    <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
+    <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+  </div>
+  <nav class="foot-nav">
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/drtazgenius" target="_blank" rel="noopener" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 22v-8h2.7l.4-3.3H14V8.6c0-.95.26-1.6 1.63-1.6H17.2V4.1C16.9 4.07 15.9 4 14.7 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.8V14h2.7v8z"/></svg></a>
+    <a href="https://www.instagram.com/drtazgenius" target="_blank" rel="noopener" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1"/></svg></a>
+    <a href="https://tiktok.com/@drtazgenius2" target="_blank" rel="noopener" aria-label="tiktok"><svg viewBox="0 0 24 24"><path d="M14 3c.4 2 2 3.4 4 3.6v3c-1.5 0-2.9-.4-4-1.2v6.1a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.6 2.2V3z"/></svg></a>
+    <a href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" aria-label="youtube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="#0E0E0C"/></svg></a>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var translations = {
+    sw: {
+      navProducts: 'Bidhaa',
+      navServices: 'Huduma',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Mawasiliano',
+      bookBtn: 'Panga miadi',
+      svcEyebrow: 'HUDUMA',
+      svcTitle: 'Huduma Zetu',
+      svcSub: 'Tunachanganya utaalamu wa Dr Taz na dawa za asili kukupa huduma kamili ya afya.',
+      svcCtaTitle: 'Una swali kuhusu huduma zetu? Wasiliana nasi leo.',
+      svcCtaBtn: 'Panga Miadi',
+      svcCardCta: 'Wasiliana kwa WhatsApp →',
+      "svc1Title": 'Ushauri wa Afya ya Asili',
+      "svc1Desc": 'Tathmini ya awali ya matatizo yako ya kiafya na ushauri wa dawa za asili zinazofaa kwako.',
+      "svc2Title": 'Matibabu ya Mimea Asilia',
+      "svc2Desc": 'Mipango maalum ya matibabu kwa kutumia dawa za asili, ikifuatiliwa hatua kwa hatua.',
+      "svc3Title": 'Afya ya Uzazi',
+      "svc3Desc": 'Huduma za asili zinazohusiana na uzazi, ujauzito na afya ya mfumo wa uzazi.',
+      "svc4Title": 'Huduma za VIP na Nyumbani',
+      "svc4Desc": 'Huduma ya faragha zaidi kwa wateja wanaohitaji ushauri na matibabu nyumbani.',
+      "svc5Title": 'Ufuatiliaji wa Maendeleo',
+      "svc5Desc": 'Tunafuatilia maendeleo yako baada ya kuanza matibabu ili kuhakikisha matokeo bora.',
+      "svc6Title": 'Ushauri kwa WhatsApp',
+      "svc6Desc": 'Uliza maswali na pata ushauri wa awali moja kwa moja kupitia WhatsApp.',
+    },
+    en: {
+      navProducts: 'Products',
+      navServices: 'Services',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Contact',
+      bookBtn: 'Book Appointment',
+      svcEyebrow: 'SERVICES',
+      svcTitle: 'Our Services',
+      svcSub: 'We combine Dr Taz\'s expertise with natural remedies to give you complete care.',
+      svcCtaTitle: 'Have a question about our services? Get in touch today.',
+      svcCtaBtn: 'Book Appointment',
+      svcCardCta: 'Contact via WhatsApp →',
+      "svc1Title": 'Natural Health Consultation',
+      "svc1Desc": 'An initial assessment of your health concern and guidance on the right natural remedies for you.',
+      "svc2Title": 'Herbal Treatment Programs',
+      "svc2Desc": 'Structured herbal treatment plans tailored to your needs, followed up step by step.',
+      "svc3Title": 'Reproductive & Fertility Care',
+      "svc3Desc": 'Natural care related to fertility, conception, and reproductive health.',
+      "svc4Title": 'Private & Home Visits',
+      "svc4Desc": 'More private service for clients who prefer consultation and treatment at home.',
+      "svc5Title": 'Follow-up & Progress Care',
+      "svc5Desc": 'We follow up on your progress after treatment begins to help ensure the best results.',
+      "svc6Title": 'WhatsApp Consultations',
+      "svc6Desc": 'Ask questions and get initial guidance directly over WhatsApp.',
+    }
+  };
+
+  var textNodes = document.querySelectorAll('[data-i18n]');
+  var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+  var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var btnSw = document.getElementById('langSw');
+  var btnEn = document.getElementById('langEn');
+
+  function setLang(lang){
+    var dict = translations[lang];
+    textNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    htmlNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    placeholderNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    btnSw.classList.toggle('active', lang === 'sw');
+    btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('tazgenius-lang', lang); } catch(e){}
+  }
+
+  btnSw.addEventListener('click', function(){ setLang('sw'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  var saved = 'sw';
+  try { saved = localStorage.getItem('tazgenius-lang') || 'sw'; } catch(e){}
+  setLang(saved);
+})();
+
+</script>
+
+</body>
+</html>

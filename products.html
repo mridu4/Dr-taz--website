@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dawa za Asili — Kliniki Tiba Asili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+  .page-header { text-align: center; padding: 64px 64px 30px; }
+  .page-header-inner { max-width: 640px; margin: 0 auto; }
+  .page-header-inner p { margin: 0 auto; }
+
+  .product-cluster {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 680px;
+    height: 380px;
+    margin: 10px auto -10px;
+  }
+  .cluster-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--rot));
+    z-index: 1;
+  }
+  .cluster-item:hover {
+    z-index: 30;
+  }
+  .cluster-item:hover img {
+    animation-play-state: paused;
+    transform: scale(1.35) rotate(0deg) !important;
+  }
+  .cluster-item img {
+    display: block;
+    width: var(--size);
+    filter: drop-shadow(0 18px 28px rgba(0,0,0,0.55));
+    animation: bob var(--dur) ease-in-out infinite;
+    transition: transform 0.25s ease;
+    animation-delay: var(--delay);
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+  }
+  @media (max-width: 760px) {
+    .product-cluster { transform: scale(0.62); margin-top: -30px; margin-bottom: -60px; }
+  }
+
+  section.catalog { padding: 40px 64px 100px; background: var(--paper); }
+  .catalog-inner { max-width: 1200px; margin: 0 auto; }
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 10px;
+  }
+  .catalog-disclaimer {
+    margin-top: 50px;
+    padding: 22px 26px;
+    background: var(--white);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    font-size: 13.5px;
+    color: #55554d;
+    max-width: 900px;
+  }
+  @media (max-width: 1000px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
+  <nav>
+    <a href="products.html" class="active" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="header-right">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+      <button type="button" id="langEn" data-lang="en">EN</button>
+    </div>
+    <a class="btn-book" href="contact.html" data-i18n="bookBtn">Panga miadi</a>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow" data-i18n="catalogEyebrow">DAWA ZA ASILI</div>
+    <h1 data-i18n="catalogTitle">Bidhaa Zetu Zote</h1>
+    <p data-i18n="catalogSub">Dawa za asili zilizoandaliwa na Dr Taz Genius kwa ajili ya afya, uzazi na ustawi wako.</p>
+  </div>
+  <div class="product-cluster">
+      <div class="cluster-item" style="--x:-220px;--y:-40px;--size:110px;--rot:-8deg;--delay:0s;--dur:5.4s;"><img src="nimrati.png" alt=""></div>
+      <div class="cluster-item" style="--x:-120px;--y:-110px;--size:95px;--rot:6deg;--delay:0.6s;--dur:6.0s;"><img src="king-lizazi.png" alt=""></div>
+      <div class="cluster-item" style="--x:0px;--y:-130px;--size:120px;--rot:-4deg;--delay:0.3s;--dur:5.8s;"><img src="chereka.png" alt=""></div>
+      <div class="cluster-item" style="--x:120px;--y:-100px;--size:90px;--rot:8deg;--delay:0.9s;--dur:5.2s;"><img src="nyota.png" alt=""></div>
+      <div class="cluster-item" style="--x:220px;--y:-30px;--size:100px;--rot:-6deg;--delay:0.2s;--dur:6.2s;"><img src="king-marume.png" alt=""></div>
+      <div class="cluster-item" style="--x:180px;--y:90px;--size:95px;--rot:10deg;--delay:0.5s;--dur:5.6s;"><img src="fyashu.png" alt=""></div>
+      <div class="cluster-item" style="--x:60px;--y:120px;--size:110px;--rot:-5deg;--delay:0.8s;--dur:5.9s;"><img src="king-majini.png" alt=""></div>
+      <div class="cluster-item" style="--x:-70px;--y:130px;--size:90px;--rot:7deg;--delay:0.4s;--dur:6.1s;"><img src="kiboko-ya-meno.png" alt=""></div>
+      <div class="cluster-item" style="--x:-200px;--y:70px;--size:95px;--rot:-9deg;--delay:0.7s;--dur:5.3s;"><img src="mpapazi.png" alt=""></div>
+  </div>
+</div>
+
+<div class="marquee">
+  <span data-i18n="marqueeOpen">WAZI KILA SIKU ISIPOKUWA JUMANNE</span>
+  <span>7AM – 6PM</span>
+  <span>PUGU KWA RAIS, DAR ES SALAAM</span>
+  <span data-i18n="marqueeOpen">WAZI KILA SIKU ISIPOKUWA JUMANNE</span>
+  <span>7AM – 6PM</span>
+</div>
+
+<section class="catalog">
+  <div class="catalog-inner">
+    <div class="catalog-grid">
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="nimrati.png" alt="Nimrati"></div>
+        <div class="product-tile__body">
+          <h3>Nimrati</h3>
+          <p data-i18n="nimratiDesc">Dawa ya asili inayoaminika kusaidia kuvutia fursa za kibiashara, kuongeza mali na kulinda mafanikio yako.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Nimrati" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="shaft-plus.png" alt="Shaft Plus"></div>
+        <div class="product-tile__body">
+          <h3>Shaft Plus</h3>
+          <p data-i18n="shaft-plusDesc">Dawa ya asili ya kiume, inapatikana kwa bei nafuu. Wasiliana nasi kwa maelezo zaidi kabla ya matumizi.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Shaft%20Plus" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="uti-sugu.png" alt="Kiboko ya U.T.I. Sugu"></div>
+        <div class="product-tile__body">
+          <h3>Kiboko ya U.T.I. Sugu</h3>
+          <p data-i18n="uti-suguDesc">Dawa ya asili inayosaidia kupambana na maambukizi ya njia ya mkojo na kupunguza maumivu ya kukojoa.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kiboko%20ya%20U.T.I.%20Sugu" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="king-lizazi.png" alt="King Lizazi+"></div>
+        <div class="product-tile__body">
+          <h3>King Lizazi+</h3>
+          <p data-i18n="king-lizaziDesc">Dawa ya asili ya afya ya uzazi — husaidia kupata ujauzito na kuimarisha afya ya uzazi kwa wanaume na wanawake.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Lizazi%2B" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="king-marume.png" alt="King Marume"></div>
+        <div class="product-tile__body">
+          <h3>King Marume</h3>
+          <p data-i18n="king-marumeDesc">Dawa ya asili ya nguvu za kiume, iliyoandaliwa kwa mimea ya asili kusaidia nguvu na uwezo wa kiume.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Marume" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="chereka.png" alt="Chereka"></div>
+        <div class="product-tile__body">
+          <h3>Chereka</h3>
+          <p data-i18n="cherekaDesc">Kiboko ya vidonda vya tumbo — dawa ya asili inayosaidia kupunguza dalili za vidonda vya tumbo.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Chereka" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="fyashu.png" alt="Fyashu"></div>
+        <div class="product-tile__body">
+          <h3>Fyashu</h3>
+          <p data-i18n="fyashuDesc">Dawa ya asili ya mafua na kikohozi kikali, inatumika mara mbili kwa siku.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Fyashu" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="kiboko-ya-meno.png" alt="Kiboko ya Meno"></div>
+        <div class="product-tile__body">
+          <h3>Kiboko ya Meno</h3>
+          <p data-i18n="kiboko-ya-menoDesc">Dawa ya asili ya meno inayosaidia usafi, harufu nzuri mdomoni na afya ya meno kwa ujumla.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kiboko%20ya%20Meno" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="king-majini.png" alt="King Majini"></div>
+        <div class="product-tile__body">
+          <h3>King Majini</h3>
+          <p data-i18n="king-majiniDesc">Dawa ya asili iliyoandaliwa kwa mizizi na viungo vya asili, kwa ajili ya matumizi ya mtu mmoja tu.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Majini" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="mpapazi.png" alt="Mpapazi"></div>
+        <div class="product-tile__body">
+          <h3>Mpapazi</h3>
+          <p data-i18n="mpapaziDesc">Dawa ya asili kwa ajili ya usafi na afya ya mwanamke.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Mpapazi" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media"><img src="nyota.png" alt="Nyota"></div>
+        <div class="product-tile__body">
+          <h3>Nyota</h3>
+          <p data-i18n="nyotaDesc">Dawa ya asili ya afya bora na maisha marefu, iliyoandaliwa kwa viungo vya asili.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Nyota" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">K</div></div>
+        <div class="product-tile__body">
+          <h3>Kata Mafua</h3>
+          <p data-i18n="kata-mafuaDesc">Husaidia kupunguza dalili za mafua na msongamano wa pua.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kata%20Mafua" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">C</div></div>
+        <div class="product-tile__body">
+          <h3>Coffee Scrub</h3>
+          <p data-i18n="coffee-scrubDesc">Kusafisha na kulainisha ngozi kwa kahawa asilia.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Coffee%20Scrub" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">M</div></div>
+        <div class="product-tile__body">
+          <h3>Msalala</h3>
+          <p data-i18n="msalalaDesc">Husaidia kupunguza muonekano wa makunyanzi.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Msalala" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">O</div></div>
+        <div class="product-tile__body">
+          <h3>Ondoa Sumu</h3>
+          <p data-i18n="ondoa-sumuDesc">Kinywaji cha asili cha kusaidia mwili kujisafisha.</p>
+          <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Ondoa%20Sumu" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-disclaimer" data-i18n="catalogDisclaimer">
+      Bidhaa hizi ni dawa za asili na hazijakusudiwa kuchukua nafasi ya ushauri wa daktari. Kama una hali maalum ya kiafya au unatumia dawa nyingine, wasiliana nasi kabla ya matumizi.
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-col">
+    <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
+    <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+  </div>
+  <nav class="foot-nav">
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/drtazgenius" target="_blank" rel="noopener" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 22v-8h2.7l.4-3.3H14V8.6c0-.95.26-1.6 1.63-1.6H17.2V4.1C16.9 4.07 15.9 4 14.7 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.8V14h2.7v8z"/></svg></a>
+    <a href="https://www.instagram.com/drtazgenius" target="_blank" rel="noopener" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1"/></svg></a>
+    <a href="https://tiktok.com/@drtazgenius2" target="_blank" rel="noopener" aria-label="tiktok"><svg viewBox="0 0 24 24"><path d="M14 3c.4 2 2 3.4 4 3.6v3c-1.5 0-2.9-.4-4-1.2v6.1a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.6 2.2V3z"/></svg></a>
+    <a href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" aria-label="youtube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="#0E0E0C"/></svg></a>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var translations = {
+    sw: {
+      navProducts: 'Bidhaa',
+      navServices: 'Huduma',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Mawasiliano',
+      bookBtn: 'Panga miadi',
+      catalogEyebrow: 'DAWA ZA ASILI',
+      catalogTitle: 'Bidhaa Zetu Zote',
+      catalogSub: 'Dawa za asili zilizoandaliwa na Dr Taz Genius kwa ajili ya afya, uzazi na ustawi wako.',
+      orderBtn: 'Agiza kwa WhatsApp →',
+      catalogDisclaimer: 'Bidhaa hizi ni dawa za asili na hazijakusudiwa kuchukua nafasi ya ushauri wa daktari. Kama una hali maalum ya kiafya au unatumia dawa nyingine, wasiliana nasi kabla ya matumizi.',
+      marqueeOpen: 'WAZI KILA SIKU ISIPOKUWA JUMANNE',
+      "nimratiDesc": 'Dawa ya asili inayoaminika kusaidia kuvutia fursa za kibiashara, kuongeza mali na kulinda mafanikio yako.',
+      "shaft-plusDesc": 'Dawa ya asili ya kiume, inapatikana kwa bei nafuu. Wasiliana nasi kwa maelezo zaidi kabla ya matumizi.',
+      "uti-suguDesc": 'Dawa ya asili inayosaidia kupambana na maambukizi ya njia ya mkojo na kupunguza maumivu ya kukojoa.',
+      "king-lizaziDesc": 'Dawa ya asili ya afya ya uzazi — husaidia kupata ujauzito na kuimarisha afya ya uzazi kwa wanaume na wanawake.',
+      "king-marumeDesc": 'Dawa ya asili ya nguvu za kiume, iliyoandaliwa kwa mimea ya asili kusaidia nguvu na uwezo wa kiume.',
+      "cherekaDesc": 'Kiboko ya vidonda vya tumbo — dawa ya asili inayosaidia kupunguza dalili za vidonda vya tumbo.',
+      "fyashuDesc": 'Dawa ya asili ya mafua na kikohozi kikali, inatumika mara mbili kwa siku.',
+      "kiboko-ya-menoDesc": 'Dawa ya asili ya meno inayosaidia usafi, harufu nzuri mdomoni na afya ya meno kwa ujumla.',
+      "king-majiniDesc": 'Dawa ya asili iliyoandaliwa kwa mizizi na viungo vya asili, kwa ajili ya matumizi ya mtu mmoja tu.',
+      "mpapaziDesc": 'Dawa ya asili kwa ajili ya usafi na afya ya mwanamke.',
+      "nyotaDesc": 'Dawa ya asili ya afya bora na maisha marefu, iliyoandaliwa kwa viungo vya asili.',
+      "kata-mafuaDesc": 'Husaidia kupunguza dalili za mafua na msongamano wa pua.',
+      "coffee-scrubDesc": 'Kusafisha na kulainisha ngozi kwa kahawa asilia.',
+      "msalalaDesc": 'Husaidia kupunguza muonekano wa makunyanzi.',
+      "ondoa-sumuDesc": 'Kinywaji cha asili cha kusaidia mwili kujisafisha.',
+    },
+    en: {
+      navProducts: 'Products',
+      navServices: 'Services',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Contact',
+      bookBtn: 'Book Appointment',
+      catalogEyebrow: 'NATURAL REMEDIES',
+      catalogTitle: 'All Our Products',
+      catalogSub: 'Natural remedies prepared by Dr Taz Genius for your health, fertility, and wellbeing.',
+      orderBtn: 'Order via WhatsApp →',
+      catalogDisclaimer: 'These are natural remedies and are not intended to replace professional medical advice. If you have a specific health condition or take other medication, please contact us before use.',
+      marqueeOpen: 'OPEN DAILY EXCEPT TUESDAY',
+      "nimratiDesc": "A traditional remedy believed to help attract business opportunities, grow your wealth, and protect what you've built.",
+      "shaft-plusDesc": "A natural men's wellness formula. Please contact us for full guidance before use.",
+      "uti-suguDesc": 'A natural formula that helps the body fight urinary tract infections and ease discomfort when urinating.',
+      "king-lizaziDesc": 'A natural reproductive health formula — supports fertility and reproductive wellness for both men and women.',
+      "king-marumeDesc": "A natural men's vitality formula, prepared from traditional herbs to help support male strength and performance.",
+      "cherekaDesc": 'A natural remedy that helps relieve stomach ulcer symptoms.',
+      "fyashuDesc": 'A natural remedy for strong flu and severe coughing, used twice daily.',
+      "kiboko-ya-menoDesc": 'A natural dental gel that helps with cleanliness, fresh breath, and overall dental health.',
+      "king-majiniDesc": 'A natural remedy prepared from traditional roots and ingredients, intended for individual use only.',
+      "mpapaziDesc": "A natural remedy for women's hygiene and health.",
+      "nyotaDesc": 'A natural wellness remedy prepared from traditional ingredients, for good health and longevity.',
+      "kata-mafuaDesc": 'Helps relieve flu symptoms and nasal congestion.',
+      "coffee-scrubDesc": 'Cleanses and smooths the skin with natural coffee.',
+      "msalalaDesc": 'Helps reduce the appearance of wrinkles.',
+      "ondoa-sumuDesc": 'A natural drink that helps the body detoxify.',
+    }
+  };
+
+  var textNodes = document.querySelectorAll('[data-i18n]');
+  var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+  var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var btnSw = document.getElementById('langSw');
+  var btnEn = document.getElementById('langEn');
+
+  function setLang(lang){
+    var dict = translations[lang];
+    textNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    htmlNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    placeholderNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    btnSw.classList.toggle('active', lang === 'sw');
+    btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('tazgenius-lang', lang); } catch(e){}
+  }
+
+  btnSw.addEventListener('click', function(){ setLang('sw'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  var saved = 'sw';
+  try { saved = localStorage.getItem('tazgenius-lang') || 'sw'; } catch(e){}
+  setLang(saved);
+})();
+
+</script>
+
+</body>
+</html>

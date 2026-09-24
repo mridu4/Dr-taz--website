@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mawasiliano — Kliniki Tiba Asili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+  section.contact-wrap {
+    padding: 70px 64px 100px;
+    background: var(--paper);
+  }
+  .contact-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  .info-row {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e4e2d9;
+  }
+  .info-row__icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+  }
+  .info-row:nth-child(even) .info-row__icon { background: var(--red); }
+  .info-row__label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: #8a8a80;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .info-row__value { font-size: 15px; color: var(--black); line-height: 1.5; }
+  .info-row__value a { color: var(--black); text-decoration: none; }
+  .info-row__value a:hover { text-decoration: underline; }
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    background: var(--black);
+    padding: 13px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .booking-form {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 36px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+  .booking-form h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .booking-form > p {
+    font-size: 14px;
+    color: #7a7a70;
+    margin-bottom: 26px;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 7px;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #ddd8c9;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: var(--paper);
+  }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit {
+    width: 100%;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .form-note {
+    font-size: 12px;
+    color: #9a9a8e;
+    margin-top: 12px;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row-2 { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
+  <nav>
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" class="active" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="header-right">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+      <button type="button" id="langEn" data-lang="en">EN</button>
+    </div>
+    <a class="btn-book" href="contact.html" data-i18n="bookBtn">Panga miadi</a>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-logo-badge"><img src="logo.jpg" alt="Dr Taz Genius"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow" data-i18n="contactEyebrow">MAWASILIANO</div>
+    <h1 data-i18n="contactTitle">Wasiliana Nasi / Panga Miadi</h1>
+    <p data-i18n="contactSub">Tuko tayari kukusaidia. Jaza fomu hapa chini au wasiliana nasi moja kwa moja kupitia WhatsApp.</p>
+  </div>
+</div>
+
+<section class="contact-wrap">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2 data-i18n="infoHeading">Maelezo ya Mawasiliano</h2>
+
+      <div class="info-row">
+        <div class="info-row__icon">📍</div>
+        <div>
+          <div class="info-row__label" data-i18n="infoLocationLabel">Mahali</div>
+          <div class="info-row__value">Pugu Kwa Rais, Dar es Salaam</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-row__icon">🕒</div>
+        <div>
+          <div class="info-row__label" data-i18n="infoHoursLabel">Muda wa Kufungua</div>
+          <div class="info-row__value" data-i18n="infoHoursValue">Kila siku isipokuwa Jumanne, saa 1 asubuhi – saa 12 jioni (7AM – 6PM)</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-row__icon">📞</div>
+        <div>
+          <div class="info-row__label" data-i18n="infoPhoneLabel">Simu / WhatsApp</div>
+          <div class="info-row__value">
+            <a href="tel:+255734191919">0734 191 919</a> ·
+            <a href="tel:+255795191919">0795 191 919</a> ·
+            <a href="tel:+255670191919">0670 191 919</a> ·
+            <a href="tel:+255698647521">0698 647 521</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-row__icon">✉️</div>
+        <div>
+          <div class="info-row__label" data-i18n="infoEmailLabel">Barua Pepe</div>
+          <div class="info-row__value"><a href="mailto:info@drtazgenius.com">info@drtazgenius.com</a></div>
+        </div>
+      </div>
+
+      <a class="map-link" href="https://www.google.com/maps?q=-6.923861,39.109500" target="_blank" rel="noopener" data-i18n="mapLink">Fungua Ramani (Google Maps) →</a>
+    </div>
+
+    <div class="booking-form">
+      <h2 data-i18n="formHeading">Panga Miadi</h2>
+      <p data-i18n="formSub">Jaza fomu hii na ujumbe wako utatumwa kwetu moja kwa moja kupitia WhatsApp.</p>
+
+      <form id="bookingForm">
+        <div class="form-row-2">
+          <div class="form-row">
+            <label data-i18n="formNameLabel">Jina Lako</label>
+            <input type="text" id="bfName" required>
+          </div>
+          <div class="form-row">
+            <label data-i18n="formPhoneLabel">Namba ya Simu</label>
+            <input type="tel" id="bfPhone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="formServiceLabel">Huduma / Bidhaa Unayohitaji</label>
+          <select id="bfService">
+            <option data-i18n="formServiceOpt0">Ushauri wa Jumla</option>
+            <option data-i18n="formServiceOpt1">Bidhaa / Dawa Fulani</option>
+            <option data-i18n="formServiceOpt2">Afya ya Uzazi</option>
+            <option data-i18n="formServiceOpt3">Ziara ya Nyumbani</option>
+            <option data-i18n="formServiceOpt4">Nyingine</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="formDateLabel">Tarehe Unayopendelea</label>
+          <input type="date" id="bfDate">
+        </div>
+
+        <div class="form-row">
+          <label data-i18n="formMsgLabel">Ujumbe (si lazima)</label>
+          <textarea id="bfMessage" data-i18n-placeholder="formMsgPlaceholder" placeholder="Eleza kwa ufupi unachohitaji..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" data-i18n="formSubmit">Tuma kupitia WhatsApp →</button>
+        <div class="form-note" data-i18n="formNote">Utaelekezwa WhatsApp na ujumbe wako utakuwa tayari umejazwa.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-col">
+    <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
+    <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+  </div>
+  <nav class="foot-nav">
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/drtazgenius" target="_blank" rel="noopener" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 22v-8h2.7l.4-3.3H14V8.6c0-.95.26-1.6 1.63-1.6H17.2V4.1C16.9 4.07 15.9 4 14.7 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.8V14h2.7v8z"/></svg></a>
+    <a href="https://www.instagram.com/drtazgenius" target="_blank" rel="noopener" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1"/></svg></a>
+    <a href="https://tiktok.com/@drtazgenius2" target="_blank" rel="noopener" aria-label="tiktok"><svg viewBox="0 0 24 24"><path d="M14 3c.4 2 2 3.4 4 3.6v3c-1.5 0-2.9-.4-4-1.2v6.1a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.6 2.2V3z"/></svg></a>
+    <a href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" aria-label="youtube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="#0E0E0C"/></svg></a>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var translations = {
+    sw: {
+      navProducts: 'Bidhaa',
+      navServices: 'Huduma',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Mawasiliano',
+      bookBtn: 'Panga miadi',
+      contactEyebrow: 'MAWASILIANO',
+      contactTitle: 'Wasiliana Nasi / Panga Miadi',
+      contactSub: 'Tuko tayari kukusaidia. Jaza fomu hapa chini au wasiliana nasi moja kwa moja kupitia WhatsApp.',
+      infoHeading: 'Maelezo ya Mawasiliano',
+      infoLocationLabel: 'Mahali',
+      infoHoursLabel: 'Muda wa Kufungua',
+      infoHoursValue: 'Kila siku isipokuwa Jumanne, saa 1 asubuhi – saa 12 jioni (7AM – 6PM)',
+      infoPhoneLabel: 'Simu / WhatsApp',
+      infoEmailLabel: 'Barua Pepe',
+      mapLink: 'Fungua Ramani (Google Maps) →',
+      formHeading: 'Panga Miadi',
+      formSub: 'Jaza fomu hii na ujumbe wako utatumwa kwetu moja kwa moja kupitia WhatsApp.',
+      formNameLabel: 'Jina Lako',
+      formPhoneLabel: 'Namba ya Simu',
+      formServiceLabel: 'Huduma / Bidhaa Unayohitaji',
+      formServiceOpt0: 'Ushauri wa Jumla',
+      formServiceOpt1: 'Bidhaa / Dawa Fulani',
+      formServiceOpt2: 'Afya ya Uzazi',
+      formServiceOpt3: 'Ziara ya Nyumbani',
+      formServiceOpt4: 'Nyingine',
+      formDateLabel: 'Tarehe Unayopendelea',
+      formMsgLabel: 'Ujumbe (si lazima)',
+      formMsgPlaceholder: 'Eleza kwa ufupi unachohitaji...',
+      formSubmit: 'Tuma kupitia WhatsApp →',
+      formNote: 'Utaelekezwa WhatsApp na ujumbe wako utakuwa tayari umejazwa.',
+    },
+    en: {
+      navProducts: 'Products',
+      navServices: 'Services',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Contact',
+      bookBtn: 'Book Appointment',
+      contactEyebrow: 'CONTACT',
+      contactTitle: 'Contact Us / Book an Appointment',
+      contactSub: "We're ready to help. Fill out the form below or reach us directly on WhatsApp.",
+      infoHeading: 'Contact Details',
+      infoLocationLabel: 'Location',
+      infoHoursLabel: 'Opening Hours',
+      infoHoursValue: 'Daily except Tuesday, 7AM – 6PM',
+      infoPhoneLabel: 'Phone / WhatsApp',
+      infoEmailLabel: 'Email',
+      mapLink: 'Open in Google Maps →',
+      formHeading: 'Book an Appointment',
+      formSub: "Fill in this form and your message will be sent to us directly via WhatsApp.",
+      formNameLabel: 'Your Name',
+      formPhoneLabel: 'Phone Number',
+      formServiceLabel: 'Service / Product Needed',
+      formServiceOpt0: 'General Consultation',
+      formServiceOpt1: 'A Specific Product',
+      formServiceOpt2: 'Reproductive Health',
+      formServiceOpt3: 'Home Visit',
+      formServiceOpt4: 'Other',
+      formDateLabel: 'Preferred Date',
+      formMsgLabel: 'Message (optional)',
+      formMsgPlaceholder: 'Briefly describe what you need...',
+      formSubmit: 'Send via WhatsApp →',
+      formNote: "You'll be taken to WhatsApp with your message already filled in.",
+    }
+  };
+
+  var textNodes = document.querySelectorAll('[data-i18n]');
+  var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+  var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var btnSw = document.getElementById('langSw');
+  var btnEn = document.getElementById('langEn');
+
+  function setLang(lang){
+    var dict = translations[lang];
+    textNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    htmlNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    placeholderNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    btnSw.classList.toggle('active', lang === 'sw');
+    btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('tazgenius-lang', lang); } catch(e){}
+  }
+
+  btnSw.addEventListener('click', function(){ setLang('sw'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  var saved = 'sw';
+  try { saved = localStorage.getItem('tazgenius-lang') || 'sw'; } catch(e){}
+  setLang(saved);
+})();
+
+(function(){
+  var form = document.getElementById('bookingForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('bfName').value.trim();
+    var phone = document.getElementById('bfPhone').value.trim();
+    var service = document.getElementById('bfService').value;
+    var date = document.getElementById('bfDate').value;
+    var message = document.getElementById('bfMessage').value.trim();
+
+    var lines = [
+      'Habari, ningependa kupanga miadi.',
+      'Jina: ' + name,
+      'Simu: ' + phone,
+      'Huduma: ' + service
+    ];
+    if (date) lines.push('Tarehe: ' + date);
+    if (message) lines.push('Ujumbe: ' + message);
+
+    var text = encodeURIComponent(lines.join('\n'));
+    window.open('https://wa.me/255734191919?text=' + text, '_blank');
+  });
+})();
+
+</script>
+
+</body>
+</html>

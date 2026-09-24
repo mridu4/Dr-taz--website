@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Taz — Kliniki Tiba Asili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+  .about-hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 64px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    left: -80px;
+    bottom: -80px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: var(--red);
+    opacity: 0.5;
+  }
+  .about-portrait {
+    position: relative;
+    z-index: 2;
+    width: 240px;
+    height: 240px;
+    min-width: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid var(--green);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .about-hero-text { position: relative; z-index: 2; max-width: 560px; }
+  .about-eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: #8fd6ab;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .about-hero-text h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .about-hero-text p {
+    font-size: 16px;
+    color: #cfcfc8;
+    line-height: 1.6;
+  }
+  .about-tagline {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--white);
+    border-left: 3px solid var(--green);
+    padding-left: 14px;
+  }
+  .about-bio {
+    padding: 80px 64px;
+    background: var(--white);
+  }
+  .about-bio-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2c2c26;
+  }
+  .about-bio-inner h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: var(--black);
+  }
+  .about-bio-inner p { margin-bottom: 18px; }
+  .about-edit-note {
+    margin-top: 10px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a7a70;
+  }
+  .about-values {
+    padding: 20px 64px 90px;
+    background: var(--white);
+  }
+  .about-values-inner { max-width: 1200px; margin: 0 auto; }
+  .about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 30px;
+  }
+  .value-card {
+    background: var(--paper);
+    border-radius: 10px;
+    padding: 30px 26px;
+  }
+  .value-card h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--green);
+  }
+  .value-card:nth-child(2) h3 { color: var(--red); }
+  .value-card p { font-size: 14px; color: #55554d; line-height: 1.55; }
+  @media (max-width: 800px) {
+    .about-hero { flex-direction: column; text-align: center; }
+    .about-values-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
+  <nav>
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" class="active" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="header-right">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+      <button type="button" id="langEn" data-lang="en">EN</button>
+    </div>
+    <a class="btn-book" href="contact.html" data-i18n="bookBtn">Panga miadi</a>
+  </div>
+</header>
+
+<div class="about-hero">
+  <div class="about-portrait"><img src="logo.jpg" alt="Dr Taz Genius"></div>
+  <div class="about-hero-text">
+    <div class="about-eyebrow" data-i18n="aboutEyebrow">DR TAZ GENIUS</div>
+    <h1 data-i18n="aboutHeroTitle">Mtaalamu wa Tiba na Dawa za Asili</h1>
+    <p class="about-tagline" data-i18n="aboutTagline">Tiba Asilia, Elimu na Huduma kwa Jamii.</p>
+  </div>
+</div>
+
+<section class="about-bio">
+  <div class="about-bio-inner">
+    <h2 data-i18n="aboutBioHeading">Kuhusu Dr Taz Genius</h2>
+    <p data-i18n="aboutBioP1">Dr Taz Genius ni mtaalamu wa tiba na dawa za asili anayejikita katika kutoa elimu na huduma zinazohusiana na matumizi ya tiba asilia. Anaamini katika matumizi sahihi na salama ya tiba za asili, huku akilenga kuwasaidia watu kupata uelewa zaidi kuhusu afya na bidhaa za asili.</p>
+    <p data-i18n="aboutBioP2">Kupitia Dr Taz Genius, anatoa huduma za ushauri wa afya pamoja na bidhaa mbalimbali za asili zinazolenga mahitaji tofauti ya kiafya.</p>
+    <p data-i18n="aboutBioP3">Kupitia Dr Taz Genius, hupatikana bidhaa mbalimbali za asili zinazolenga mahitaji tofauti ya wateja. Kila bidhaa hutambulishwa kwa maelezo yanayolenga kumsaidia mteja kuelewa matumizi yake na kupata ushauri unaofaa kabla ya kuitumia.</p>
+  </div>
+</section>
+
+<section class="about-values">
+  <div class="about-values-inner">
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;" data-i18n="aboutValuesHeading">Misingi Yetu</h2>
+    <div class="about-values-grid">
+      <div class="value-card">
+        <h3 data-i18n="value1Title">Asili</h3>
+        <p data-i18n="value1Desc">Tunatumia mimea na dawa za asili pekee, zilizoandaliwa kwa taratibu za jadi zilizothibitishwa.</p>
+      </div>
+      <div class="value-card">
+        <h3 data-i18n="value2Title">Uaminifu</h3>
+        <p data-i18n="value2Desc">Kila mteja anapata ushauri wa dhati, bila ahadi za uongo au matarajio yasiyo ya kweli.</p>
+      </div>
+      <div class="value-card">
+        <h3 data-i18n="value3Title">Huduma ya Karibu</h3>
+        <p data-i18n="value3Desc">Tunapokea kila mteja kwa heshima na kumfuatilia hadi anapopata matokeo anayotaka.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-col">
+    <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
+    <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+  </div>
+  <nav class="foot-nav">
+    <a href="products.html" data-i18n="navProducts">Bidhaa</a>
+    <a href="services.html" data-i18n="navServices">Huduma</a>
+    <a href="dr-taz.html" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="contact.html" data-i18n="navContact">Mawasiliano</a>
+  </nav>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/drtazgenius" target="_blank" rel="noopener" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 22v-8h2.7l.4-3.3H14V8.6c0-.95.26-1.6 1.63-1.6H17.2V4.1C16.9 4.07 15.9 4 14.7 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.8V14h2.7v8z"/></svg></a>
+    <a href="https://www.instagram.com/drtazgenius" target="_blank" rel="noopener" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1"/></svg></a>
+    <a href="https://tiktok.com/@drtazgenius2" target="_blank" rel="noopener" aria-label="tiktok"><svg viewBox="0 0 24 24"><path d="M14 3c.4 2 2 3.4 4 3.6v3c-1.5 0-2.9-.4-4-1.2v6.1a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.6 2.2V3z"/></svg></a>
+    <a href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" aria-label="youtube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="#0E0E0C"/></svg></a>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var translations = {
+    sw: {
+      navProducts: 'Bidhaa',
+      navServices: 'Huduma',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Mawasiliano',
+      bookBtn: 'Panga miadi',
+      aboutEyebrow: 'DR TAZ GENIUS',
+      aboutHeroTitle: 'Mtaalamu wa Tiba na Dawa za Asili',
+      aboutTagline: 'Tiba Asilia, Elimu na Huduma kwa Jamii.',
+      aboutBioHeading: 'Kuhusu Dr Taz Genius',
+      aboutBioP1: 'Dr Taz Genius ni mtaalamu wa tiba na dawa za asili anayejikita katika kutoa elimu na huduma zinazohusiana na matumizi ya tiba asilia. Anaamini katika matumizi sahihi na salama ya tiba za asili, huku akilenga kuwasaidia watu kupata uelewa zaidi kuhusu afya na bidhaa za asili.',
+      aboutBioP2: 'Kupitia Dr Taz Genius, anatoa huduma za ushauri wa afya pamoja na bidhaa mbalimbali za asili zinazolenga mahitaji tofauti ya kiafya.',
+      aboutBioP3: 'Kupitia Dr Taz Genius, hupatikana bidhaa mbalimbali za asili zinazolenga mahitaji tofauti ya wateja. Kila bidhaa hutambulishwa kwa maelezo yanayolenga kumsaidia mteja kuelewa matumizi yake na kupata ushauri unaofaa kabla ya kuitumia.',
+      aboutValuesHeading: 'Misingi Yetu',
+      value1Title: 'Asili',
+      value1Desc: 'Tunatumia mimea na dawa za asili pekee, zilizoandaliwa kwa taratibu za jadi zilizothibitishwa.',
+      value2Title: 'Uaminifu',
+      value2Desc: 'Kila mteja anapata ushauri wa dhati, bila ahadi za uongo au matarajio yasiyo ya kweli.',
+      value3Title: 'Huduma ya Karibu',
+      value3Desc: 'Tunapokea kila mteja kwa heshima na kumfuatilia hadi anapopata matokeo anayotaka.',
+    },
+    en: {
+      navProducts: 'Products',
+      navServices: 'Services',
+      navDrTaz: 'Dr Taz',
+      navContact: 'Contact',
+      bookBtn: 'Book Appointment',
+      aboutEyebrow: 'DR TAZ GENIUS',
+      aboutHeroTitle: 'Traditional Medicine & Natural Remedies Specialist',
+      aboutTagline: 'Natural Healing, Education and Service to the Community.',
+      aboutBioHeading: 'About Dr Taz Genius',
+      aboutBioP1: "Dr Taz Genius is a specialist in traditional medicine and natural remedies, focused on providing education and services related to the use of natural healing methods. He believes in the correct and safe use of natural remedies, with a focus on helping people better understand health and natural products.",
+      aboutBioP2: 'Through Dr Taz Genius, health consultation services are offered alongside a range of natural products designed to meet different health needs.',
+      aboutBioP3: "A variety of natural products are available through Dr Taz Genius to meet different clients' needs. Each product comes with information to help the client understand its use and get the right guidance before using it.",
+      aboutValuesHeading: 'What We Stand For',
+      value1Title: 'Natural',
+      value1Desc: 'We use only natural plants and remedies, prepared using proven traditional methods.',
+      value2Title: 'Honesty',
+      value2Desc: 'Every client gets honest guidance, without false promises or unrealistic expectations.',
+      value3Title: 'Personal Care',
+      value3Desc: 'We welcome every client with respect and follow up until they get the results they want.',
+    }
+  };
+
+  var textNodes = document.querySelectorAll('[data-i18n]');
+  var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+  var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var btnSw = document.getElementById('langSw');
+  var btnEn = document.getElementById('langEn');
+
+  function setLang(lang){
+    var dict = translations[lang];
+    textNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    htmlNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    placeholderNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    btnSw.classList.toggle('active', lang === 'sw');
+    btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('tazgenius-lang', lang); } catch(e){}
+  }
+
+  btnSw.addEventListener('click', function(){ setLang('sw'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  var saved = 'sw';
+  try { saved = localStorage.getItem('tazgenius-lang') || 'sw'; } catch(e){}
+  setLang(saved);
+})();
+
+</script>
+
+</body>
+</html>
