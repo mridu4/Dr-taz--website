@@ -216,24 +216,49 @@
     .social-embed-grid { grid-template-columns: 1fr; }
   }
 
+  @media (max-width: 860px) {
+    .hero { padding: 140px 20px 50px; min-height: 0; }
+    .hero h1 { font-size: 36px; }
+    .hero p.lede { font-size: 16px; }
+    .hero-actions { flex-wrap: wrap; }
+    .hero-circle-green { width: 170px; height: 170px; right: -30px; top: -20px; }
+    .hero-circle-red { width: 124px; height: 124px; right: 4px; top: 6px; }
+    .hero-logo { width: 108px; height: 108px; right: 18px; top: 22px; }
+    .hero-carousel { display: none; }
+    .products-head-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+    section.videos { padding: 50px 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 30px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-outline { text-align: center; }
+  }
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo"><a href="/" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
-  <nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-wrap" id="navWrap">
+    <nav>
     <a href="products" data-i18n="navProducts">Bidhaa</a>
     <a href="services" data-i18n="navServices">Huduma</a>
     <a href="dr-taz" data-i18n="navDrTaz">Dr Taz</a>
     <a href="contact" data-i18n="navContact">Mawasiliano</a>
-  </nav>
-  <div class="header-right">
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
-      <button type="button" id="langEn" data-lang="en">EN</button>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+        <button type="button" id="langEn" data-lang="en">EN</button>
+      </div>
+      <a class="btn-book" href="contact" data-i18n="bookBtn">Panga miadi</a>
     </div>
-    <a class="btn-book" href="contact" data-i18n="bookBtn">Panga miadi</a>
   </div>
 </header>
 
@@ -352,6 +377,9 @@
   <div class="foot-col">
     <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
     <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+    <div class="foot-visitors" id="visitorCounterRow" style="display:none;">
+      <span data-i18n="visitorsLabel">Wageni waliotembelea</span>: <span id="visitorCount">—</span>
+    </div>
   </div>
   <nav class="foot-nav">
     <a href="products" data-i18n="navProducts">Bidhaa</a>
@@ -377,6 +405,7 @@
       navDrTaz: 'Dr Taz',
       navContact: 'Mawasiliano',
       bookBtn: 'Panga miadi',
+      visitorsLabel: 'Wageni waliotembelea',
       heroTitle: 'Nguvu za <span class="accent-green">asili</span>, kwa afya <span class="accent-red">yako</span>.',
       heroLede: 'Kliniki Tiba Asili, Pugu Kwa Rais — mahali dawa za asili na uzoefu wa Dr Taz vinakutana.',
       heroPrimary: 'Ona bidhaa zetu',
@@ -401,6 +430,7 @@
       navDrTaz: 'Dr Taz',
       navContact: 'Contact',
       bookBtn: 'Book Appointment',
+      visitorsLabel: 'Visitors',
       heroTitle: 'The power of <span class="accent-green">nature</span>, for your <span class="accent-red">health</span>.',
       heroLede: "Kliniki Tiba Asili, Pugu Kwa Rais — where natural remedies meet Dr Taz's expertise.",
       heroPrimary: 'View Our Products',
@@ -456,6 +486,35 @@
 })();
 
 (function(){
+  var toggle = document.getElementById('navToggle');
+  var wrap = document.getElementById('navWrap');
+  if (!toggle || !wrap) return;
+  toggle.addEventListener('click', function(){
+    var open = wrap.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  wrap.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ wrap.classList.remove('open'); });
+  });
+})();
+
+(function(){
+  var row = document.getElementById('visitorCounterRow');
+  var countEl = document.getElementById('visitorCount');
+  if (!row || !countEl) return;
+  fetch('https://hits-app.vercel.app/hits?url=https://drtazgenius.com&json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var n = (d && (d.count || d.hits || d.value)) || null;
+      if (n) {
+        countEl.textContent = Number(n).toLocaleString();
+        row.style.display = 'block';
+      }
+    })
+    .catch(function(){ /* silently keep hidden if the counter service is unreachable */ });
+})();
+
+(function(){
   var track = document.getElementById('heroCarouselTrack');
   var carousel = document.getElementById('heroCarousel');
   if (!track || !carousel) return;
@@ -485,7 +544,7 @@
 
   function layout(t){
     var spreadPx = carousel.clientWidth * 1.05;
-    var dropPx = 260;
+    var dropPx = carousel.clientHeight * 0.56;
     var baseOffsetX = -50;
     var translateX = baseOffsetX - t * spreadPx;
     var translateY = t * dropPx;
