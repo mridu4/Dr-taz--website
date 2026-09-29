@@ -28,6 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 <style>
 
   .page-header { text-align: center; padding: 64px 64px 30px; }
@@ -80,6 +81,37 @@
     gap: 24px;
     margin-top: 10px;
   }
+  .cat-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 34px;
+  }
+  .cat-btn {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1.5px solid #ddd8c9;
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cat-btn:hover { border-color: var(--green); }
+  .cat-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+  }
+  .product-tile.cat-hidden { display: none; }
+  .cat-empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: #9a9a90;
+    font-size: 14px;
+  }
   .catalog-disclaimer {
     margin-top: 50px;
     padding: 22px 26px;
@@ -111,6 +143,7 @@
     <nav>
     <a href="products" class="active" data-i18n="navProducts">Bidhaa</a>
     <a href="services" data-i18n="navServices">Huduma</a>
+    <a href="elimu" data-i18n="navElimu">Elimu</a>
     <a href="dr-taz" data-i18n="navDrTaz">Dr Taz</a>
     <a href="faq" data-i18n="navFaq">Maswali</a>
     <a href="contact" data-i18n="navContact">Mawasiliano</a>
@@ -155,8 +188,19 @@
 
 <section class="catalog">
   <div class="catalog-inner">
-    <div class="catalog-grid">
-      <div class="product-tile">
+    <div class="cat-filter-bar" id="catFilterBar">
+      <button type="button" class="cat-btn active" data-cat="all" data-i18n="cat_all">Wote</button>
+      <button type="button" class="cat-btn" data-cat="wanaume" data-i18n="cat_wanaume">Afya ya Wanaume</button>
+      <button type="button" class="cat-btn" data-cat="wanawake" data-i18n="cat_wanawake">Afya ya Wanawake</button>
+      <button type="button" class="cat-btn" data-cat="mkojo" data-i18n="cat_mkojo">Mfumo wa Mkojo</button>
+      <button type="button" class="cat-btn" data-cat="tumbo" data-i18n="cat_tumbo">Tumbo</button>
+      <button type="button" class="cat-btn" data-cat="homa" data-i18n="cat_homa">Homa na Mafua</button>
+      <button type="button" class="cat-btn" data-cat="ngozi" data-i18n="cat_ngozi">Ngozi</button>
+      <button type="button" class="cat-btn" data-cat="meno" data-i18n="cat_meno">Meno</button>
+      <button type="button" class="cat-btn" data-cat="ustawi" data-i18n="cat_ustawi">Bahati na Ustawi</button>
+    </div>
+    <div class="catalog-grid" id="catalogGrid">
+      <div class="product-tile" data-cat="ustawi">
         <div class="product-tile__media"><img src="nimrati.webp" alt="Nimrati"></div>
         <div class="product-tile__body">
           <h3>Nimrati</h3>
@@ -164,7 +208,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Nimrati" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="wanaume">
         <div class="product-tile__media"><img src="shaft-plus.webp" alt="Shaft Plus"></div>
         <div class="product-tile__body">
           <h3>Shaft Plus</h3>
@@ -172,7 +216,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Shaft%20Plus" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="mkojo">
         <div class="product-tile__media"><img src="uti-sugu.webp" alt="Kiboko ya U.T.I. Sugu"></div>
         <div class="product-tile__body">
           <h3>Kiboko ya U.T.I. Sugu</h3>
@@ -180,7 +224,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kiboko%20ya%20U.T.I.%20Sugu" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="wanawake">
         <div class="product-tile__media"><img src="king-lizazi.webp" alt="King Lizazi+"></div>
         <div class="product-tile__body">
           <h3>King Lizazi+</h3>
@@ -188,7 +232,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Lizazi%2B" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="wanaume">
         <div class="product-tile__media"><img src="king-marume.webp" alt="King Marume"></div>
         <div class="product-tile__body">
           <h3>King Marume</h3>
@@ -196,7 +240,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Marume" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="tumbo">
         <div class="product-tile__media"><img src="chereka.webp" alt="Chereka"></div>
         <div class="product-tile__body">
           <h3>Chereka</h3>
@@ -204,7 +248,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Chereka" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="homa">
         <div class="product-tile__media"><img src="fyashu.webp" alt="Fyashu"></div>
         <div class="product-tile__body">
           <h3>Fyashu</h3>
@@ -212,7 +256,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Fyashu" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="meno">
         <div class="product-tile__media"><img src="kiboko-ya-meno.webp" alt="Kiboko ya Meno"></div>
         <div class="product-tile__body">
           <h3>Kiboko ya Meno</h3>
@@ -220,7 +264,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kiboko%20ya%20Meno" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="ustawi">
         <div class="product-tile__media"><img src="king-majini.webp" alt="King Majini"></div>
         <div class="product-tile__body">
           <h3>King Majini</h3>
@@ -228,7 +272,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20King%20Majini" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="wanawake">
         <div class="product-tile__media"><img src="mpapazi.webp" alt="Mpapazi"></div>
         <div class="product-tile__body">
           <h3>Mpapazi</h3>
@@ -236,7 +280,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Mpapazi" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="ustawi">
         <div class="product-tile__media"><img src="nyota.webp" alt="Nyota"></div>
         <div class="product-tile__body">
           <h3>Nyota</h3>
@@ -244,7 +288,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Nyota" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="homa">
         <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">K</div></div>
         <div class="product-tile__body">
           <h3>Kata Mafua</h3>
@@ -252,7 +296,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Kata%20Mafua" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="ngozi">
         <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">C</div></div>
         <div class="product-tile__body">
           <h3>Coffee Scrub</h3>
@@ -260,7 +304,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Coffee%20Scrub" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="ngozi">
         <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">M</div></div>
         <div class="product-tile__body">
           <h3>Msalala</h3>
@@ -268,7 +312,7 @@
           <a class="order-link" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%3A%20Msalala" target="_blank" rel="noopener" data-i18n="orderBtn">Agiza kwa WhatsApp →</a>
         </div>
       </div>
-      <div class="product-tile">
+      <div class="product-tile" data-cat="tumbo">
         <div class="product-tile__media product-tile__media--icon"><div class="product-tile__icon">O</div></div>
         <div class="product-tile__body">
           <h3>Ondoa Sumu</h3>
@@ -277,6 +321,7 @@
         </div>
       </div>
     </div>
+    <div class="cat-empty" id="catEmpty" data-i18n="catEmpty" style="display:none;">Hakuna bidhaa katika kundi hili kwa sasa.</div>
     <div class="catalog-disclaimer" data-i18n="catalogDisclaimer">
       Bidhaa hizi ni dawa za asili na hazijakusudiwa kuchukua nafasi ya ushauri wa daktari. Kama una hali maalum ya kiafya au unatumia dawa nyingine, wasiliana nasi kabla ya matumizi.
     </div>
@@ -295,6 +340,7 @@
   <nav class="foot-nav">
     <a href="products" data-i18n="navProducts">Bidhaa</a>
     <a href="services" data-i18n="navServices">Huduma</a>
+    <a href="elimu" data-i18n="navElimu">Elimu</a>
     <a href="dr-taz" data-i18n="navDrTaz">Dr Taz</a>
     <a href="faq" data-i18n="navFaq">Maswali</a>
     <a href="contact" data-i18n="navContact">Mawasiliano</a>
@@ -319,6 +365,7 @@
     sw: {
       navProducts: 'Bidhaa',
       navServices: 'Huduma',
+      navElimu: 'Elimu',
       navDrTaz: 'Dr Taz',
       navFaq: 'Maswali',
       navContact: 'Mawasiliano',
@@ -329,7 +376,17 @@
       catalogSub: 'Dawa za asili zilizoandaliwa na Dr Taz Genius kwa ajili ya afya, uzazi na ustawi wako.',
       orderBtn: 'Agiza kwa WhatsApp →',
       catalogDisclaimer: 'Bidhaa hizi ni dawa za asili na hazijakusudiwa kuchukua nafasi ya ushauri wa daktari. Kama una hali maalum ya kiafya au unatumia dawa nyingine, wasiliana nasi kabla ya matumizi.',
+      catEmpty: 'Hakuna bidhaa katika kundi hili kwa sasa.',
       marqueeOpen: 'WAZI KILA SIKU ISIPOKUWA JUMANNE',
+      "cat_all": 'Wote',
+      "cat_wanaume": 'Afya ya Wanaume',
+      "cat_wanawake": 'Afya ya Wanawake',
+      "cat_mkojo": 'Mfumo wa Mkojo',
+      "cat_tumbo": 'Tumbo',
+      "cat_homa": 'Homa na Mafua',
+      "cat_ngozi": 'Ngozi',
+      "cat_meno": 'Meno',
+      "cat_ustawi": 'Bahati na Ustawi',
       "nimratiDesc": 'Dawa ya asili inayoaminika kusaidia kuvutia fursa za kibiashara, kuongeza mali na kulinda mafanikio yako.',
       "shaft-plusDesc": 'Dawa ya asili ya kiume, inapatikana kwa bei nafuu. Wasiliana nasi kwa maelezo zaidi kabla ya matumizi.',
       "uti-suguDesc": 'Dawa ya asili inayosaidia kupambana na maambukizi ya njia ya mkojo na kupunguza maumivu ya kukojoa.',
@@ -349,6 +406,7 @@
     en: {
       navProducts: 'Products',
       navServices: 'Services',
+      navElimu: 'Learn',
       navDrTaz: 'Dr Taz',
       navFaq: 'FAQ',
       navContact: 'Contact',
@@ -359,7 +417,17 @@
       catalogSub: 'Natural remedies prepared by Dr Taz Genius for your health, fertility, and wellbeing.',
       orderBtn: 'Order via WhatsApp →',
       catalogDisclaimer: 'These are natural remedies and are not intended to replace professional medical advice. If you have a specific health condition or take other medication, please contact us before use.',
+      catEmpty: 'No products in this category yet.',
       marqueeOpen: 'OPEN DAILY EXCEPT TUESDAY',
+      "cat_all": 'All',
+      "cat_wanaume": "Men's Health",
+      "cat_wanawake": "Women's Health",
+      "cat_mkojo": 'Urinary Health',
+      "cat_tumbo": 'Digestive',
+      "cat_homa": 'Flu & Cold',
+      "cat_ngozi": 'Skin Care',
+      "cat_meno": 'Dental',
+      "cat_ustawi": 'Luck & Wellness',
       "nimratiDesc": "A traditional remedy believed to help attract business opportunities, grow your wealth, and protect what you've built.",
       "shaft-plusDesc": "A natural men's wellness formula. Please contact us for full guidance before use.",
       "uti-suguDesc": 'A natural formula that helps the body fight urinary tract infections and ease discomfort when urinating.',
@@ -422,6 +490,30 @@
   });
   wrap.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ wrap.classList.remove('open'); });
+  });
+})();
+
+(function(){
+  var buttons = document.querySelectorAll('.cat-btn');
+  var tiles = document.querySelectorAll('#catalogGrid .product-tile');
+  var emptyMsg = document.getElementById('catEmpty');
+
+  function applyFilter(cat){
+    var visibleCount = 0;
+    tiles.forEach(function(t){
+      var match = (cat === 'all' || t.getAttribute('data-cat') === cat);
+      t.classList.toggle('cat-hidden', !match);
+      if (match) visibleCount++;
+    });
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.getAttribute('data-cat'));
+    });
   });
 })();
 

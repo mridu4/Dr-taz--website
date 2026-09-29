@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elimu ya Afya — Kliniki Tiba Asili</title>
+<meta name="description" content="Elimu ya afya, vidokezo vya kila siku na video kutoka kwa Dr Taz Genius, Kliniki Tiba Asili.">
+<link rel="canonical" href="https://drtazgenius.com/elimu">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Elimu ya Afya — Kliniki Tiba Asili">
+<meta property="og:description" content="Elimu ya afya, vidokezo vya kila siku na video kutoka kwa Dr Taz Genius, Kliniki Tiba Asili.">
+<meta property="og:image" content="https://drtazgenius.com/logo.jpg">
+<meta property="og:url" content="https://drtazgenius.com/elimu">
+<meta property="og:site_name" content="Tiba Asili na Dr Taz Genius">
+<meta property="og:locale" content="sw_TZ">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elimu ya Afya — Kliniki Tiba Asili">
+<meta name="twitter:description" content="Elimu ya afya, vidokezo vya kila siku na video kutoka kwa Dr Taz Genius, Kliniki Tiba Asili.">
+<meta name="twitter:image" content="https://drtazgenius.com/logo.jpg">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+  section.elimu-videos { padding: 70px 64px 40px; background: var(--black); }
+  .elimu-inner { max-width: 1100px; margin: 0 auto; }
+  .elimu-videos h2, .elimu-articles h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    margin-bottom: 8px;
+  }
+  .elimu-videos h2 { color: var(--white); }
+  .elimu-sub { font-size: 14px; color: #9a9a90; margin-bottom: 28px; max-width: 60ch; }
+  .elimu-video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+  }
+  .elimu-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .elimu-channel-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--green);
+    text-decoration: none;
+  }
+  .elimu-videos { padding-bottom: 70px; }
+
+  section.elimu-articles { padding: 80px 64px 100px; background: var(--paper); }
+  .elimu-articles .elimu-sub { color: #7a7a70; }
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+  .article-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 28px 26px;
+    border-left: 5px solid var(--green);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+  .article-card:nth-child(even) { border-left-color: var(--red); }
+  .article-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .article-card:nth-child(even) .article-tag { color: var(--red); }
+  .article-card h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .article-card p.lead { font-size: 14.5px; color: #55554d; line-height: 1.6; }
+  .article-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .article-card.open .article-body { max-height: 900px; }
+  .article-body ul { margin: 14px 0 0 18px; }
+  .article-body li { font-size: 14px; color: #3f3f38; line-height: 1.6; margin-bottom: 8px; }
+  .article-toggle {
+    margin-top: 16px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--green);
+    cursor: pointer;
+  }
+  .article-card:nth-child(even) .article-toggle { color: var(--red); }
+  .elimu-note {
+    margin-top: 40px;
+    padding: 20px 24px;
+    background: var(--white);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a7a70;
+  }
+  @media (max-width: 860px) {
+    section.elimu-videos, section.elimu-articles { padding-left: 24px; padding-right: 24px; }
+    .article-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    section.elimu-videos { padding-top: 40px; padding-bottom: 40px; }
+    section.elimu-articles { padding-top: 40px; padding-bottom: 70px; }
+    .elimu-videos h2, .elimu-articles h2 { font-size: 24px; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="/" style="color:inherit;text-decoration:none;">Tiba Asili <span>na Dr Taz Genius</span></a></div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-wrap" id="navWrap">
+    <nav>
+    <a href="products" data-i18n="navProducts">Bidhaa</a>
+    <a href="services" data-i18n="navServices">Huduma</a>
+    <a href="elimu" class="active" data-i18n="navElimu">Elimu</a>
+    <a href="dr-taz" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="faq" data-i18n="navFaq">Maswali</a>
+    <a href="contact" data-i18n="navContact">Mawasiliano</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="langSw" class="active" data-lang="sw">SW</button>
+        <button type="button" id="langEn" data-lang="en">EN</button>
+      </div>
+      <a class="btn-book" href="contact" data-i18n="bookBtn">Panga miadi</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-logo-badge"><img src="logo.jpg" alt="Dr Taz Genius"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow" data-i18n="elimuEyebrow">ELIMU</div>
+    <h1 data-i18n="elimuTitle">Elimu ya Afya</h1>
+    <p data-i18n="elimuSub">Mafundisho, vidokezo na elimu ya afya kutoka kwa Dr Taz Genius kwa jamii.</p>
+  </div>
+</div>
+
+<section class="elimu-videos">
+  <div class="elimu-inner">
+    <h2 data-i18n="elimuVideosHeading">Video za Hivi Karibuni</h2>
+    <div class="elimu-sub" data-i18n="elimuVideosSub">Video mpya kutoka TAZ GENIUS TV zinaonekana hapa moja kwa moja.</div>
+    <div class="elimu-video-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=UUP5ewVcNYQH5MBKxqQzsrHQ" title="TAZ GENIUS TV" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <a class="elimu-channel-link" href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" data-i18n="elimuChannelLink">Fungua Channel Yetu ya YouTube →</a>
+  </div>
+</section>
+
+<section class="elimu-articles">
+  <div class="elimu-inner">
+    <h2 data-i18n="elimuArticlesHeading">Makala Fupi za Afya</h2>
+    <div class="elimu-sub" data-i18n="elimuArticlesSub">Vidokezo rahisi vya kila siku. Hii ni elimu ya jumla, si mbadala wa ushauri wa daktari.</div>
+    <div class="article-grid">
+      <article class="article-card">
+        <div class="article-tag" data-i18n="art1Tag">Usalama</div>
+        <h3 data-i18n="art1Title">Matumizi Salama ya Dawa za Asili</h3>
+        <p class="lead" data-i18n="art1Lead">Dawa za asili zinaweza kuwa msaada mzuri, lakini kama dawa yoyote, zinahitaji matumizi sahihi.</p>
+        <div class="article-body">
+          <ul>
+          <li data-i18n="art1P0">Soma na ufuate maelekezo ya matumizi kila mara — usiongeze kipimo bila ushauri.</li>
+          <li data-i18n="art1P1">Mwambie daktari wako kama unatumia dawa za asili pamoja na dawa za hospitalini.</li>
+          <li data-i18n="art1P2">Kama una ujauzito, unanyonyesha, una magonjwa sugu au unampa mtoto, uliza ushauri kabla ya kutumia.</li>
+          <li data-i18n="art1P3">Hifadhi dawa mahali pakavu, penye ubaridi, mbali na watoto na jua kali.</li>
+          <li data-i18n="art1P4">Ukiona dalili zisizo za kawaida (upele, kizunguzungu, kutapika), acha kutumia na utafute ushauri wa kitaalamu.</li>
+          </ul>
+        </div>
+        <button type="button" class="article-toggle" data-i18n="artReadMore">Soma zaidi ↓</button>
+      </article>
+      <article class="article-card">
+        <div class="article-tag" data-i18n="art2Tag">Lishe</div>
+        <h3 data-i18n="art2Title">Lishe Bora kwa Afya ya Kila Siku</h3>
+        <p class="lead" data-i18n="art2Lead">Afya njema huanza na kile unachokula kila siku. Mabadiliko madogo yanaleta tofauti kubwa.</p>
+        <div class="article-body">
+          <ul>
+          <li data-i18n="art2P0">Kula mboga za majani na matunda kila siku, kwa rangi tofauti.</li>
+          <li data-i18n="art2P1">Chagua nafaka zisizokobolewa (dona, mtama, uwele) badala ya vyakula vilivyosindikwa sana.</li>
+          <li data-i18n="art2P2">Punguza sukari nyingi, chumvi nyingi na vyakula vya kukaanga mara kwa mara.</li>
+          <li data-i18n="art2P3">Kula kwa nyakati zinazofanana na epuka kuruka mlo, hasa kifungua kinywa.</li>
+          <li data-i18n="art2P4">Jumuisha maharage, dengu, samaki au nyama isiyo na mafuta mengi kwa protini.</li>
+          </ul>
+        </div>
+        <button type="button" class="article-toggle" data-i18n="artReadMore">Soma zaidi ↓</button>
+      </article>
+      <article class="article-card">
+        <div class="article-tag" data-i18n="art3Tag">Maisha</div>
+        <h3 data-i18n="art3Title">Maji, Usingizi na Mazoezi</h3>
+        <p class="lead" data-i18n="art3Lead">Misingi mitatu rahisi ambayo huimarisha afya yako bila gharama kubwa.</p>
+        <div class="article-body">
+          <ul>
+          <li data-i18n="art3P0">Kunywa maji ya kutosha siku nzima — usisubiri kiu ikuume sana.</li>
+          <li data-i18n="art3P1">Lala saa 7 hadi 8 kwa usiku kwa mtu mzima, na jaribu kulala na kuamka kwa muda unaofanana.</li>
+          <li data-i18n="art3P2">Tembea au fanya mazoezi mepesi angalau dakika 30 kwa siku nyingi za wiki.</li>
+          <li data-i18n="art3P3">Punguza msongo wa mawazo kwa kupumzika, maombi/tafakari, au kuzungumza na mtu unayemwamini.</li>
+          </ul>
+        </div>
+        <button type="button" class="article-toggle" data-i18n="artReadMore">Soma zaidi ↓</button>
+      </article>
+      <article class="article-card">
+        <div class="article-tag" data-i18n="art4Tag">Muhimu</div>
+        <h3 data-i18n="art4Title">Lini Uende Hospitali Haraka</h3>
+        <p class="lead" data-i18n="art4Lead">Dawa za asili hazichukui nafasi ya huduma ya dharura. Dalili hizi zinahitaji hospitali mara moja.</p>
+        <div class="article-body">
+          <ul>
+          <li data-i18n="art4P0">Kushindwa kupumua au maumivu makali ya kifua.</li>
+          <li data-i18n="art4P1">Homa kali inayoendelea, hasa ikiambatana na kuchanganyikiwa au shingo ngumu.</li>
+          <li data-i18n="art4P2">Kutapika au kuharisha damu, au upungufu mkubwa wa maji mwilini.</li>
+          <li data-i18n="art4P3">Maumivu makali ya tumbo yanayoanza ghafla.</li>
+          <li data-i18n="art4P4">Dalili yoyote isiyo ya kawaida wakati wa ujauzito, kama kutoka damu au maumivu makali.</li>
+          <li data-i18n="art4P5">Mtoto mdogo asiyekula, asiyeamka vizuri au mwenye homa kali.</li>
+          </ul>
+        </div>
+        <button type="button" class="article-toggle" data-i18n="artReadMore">Soma zaidi ↓</button>
+      </article>
+    </div>
+    <div class="elimu-note" data-i18n="elimuNote">Kumbuka: Makala hizi ni za awali na za jumla. Zinaweza kubadilishwa na mafundisho ya Dr Taz yenyewe kadri unavyoandaa maudhui yako mwenyewe.</div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-col">
+    <div class="foot-logo">Tiba Asili na Dr Taz Genius</div>
+    <div class="foot-address">Pugu Kwa Rais, Dar es Salaam · +255 734 191 919</div>
+    <div class="foot-visitors">
+      <img src="https://hits-app.vercel.app/hits?url=https://drtazgenius.com&label=Wageni&bgLeft=0E0E0C&bgRight=1D8348&color=FFFFFF&border=round" alt="Wageni waliotembelea" loading="lazy">
+    </div>
+  </div>
+  <nav class="foot-nav">
+    <a href="products" data-i18n="navProducts">Bidhaa</a>
+    <a href="services" data-i18n="navServices">Huduma</a>
+    <a href="elimu" data-i18n="navElimu">Elimu</a>
+    <a href="dr-taz" data-i18n="navDrTaz">Dr Taz</a>
+    <a href="faq" data-i18n="navFaq">Maswali</a>
+    <a href="contact" data-i18n="navContact">Mawasiliano</a>
+    <a href="https://privacy.drtazgenius.com" target="_blank" rel="noopener" data-i18n="navPrivacy">Sera ya Faragha</a>
+  </nav>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/drtazgenius" target="_blank" rel="noopener" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 22v-8h2.7l.4-3.3H14V8.6c0-.95.26-1.6 1.63-1.6H17.2V4.1C16.9 4.07 15.9 4 14.7 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.8V14h2.7v8z"/></svg></a>
+    <a href="https://www.instagram.com/drtazgenius" target="_blank" rel="noopener" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1"/></svg></a>
+    <a href="https://tiktok.com/@drtazgenius2" target="_blank" rel="noopener" aria-label="tiktok"><svg viewBox="0 0 24 24"><path d="M14 3c.4 2 2 3.4 4 3.6v3c-1.5 0-2.9-.4-4-1.2v6.1a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.6 2.2V3z"/></svg></a>
+    <a href="https://youtube.com/@tazgeniusonlinetv-fq9ze" target="_blank" rel="noopener" aria-label="youtube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="#0E0E0C"/></svg></a>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/255734191919?text=Habari%2C%20ninapenda%20kuuliza%20kuhusu%20bidhaa%20na%20huduma%20zenu" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.1c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6C28.7 8.6 23 3 16 3zm0 22.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.2 1.2-4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8 0-5.9 4.8-10.7 10.8-10.7 2.9 0 5.6 1.1 7.6 3.2 2 2 3.2 4.7 3.2 7.6 0 5.9-4.9 10.6-10.8 10.6zm5.9-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+
+<script>
+(function(){
+  var translations = {
+    sw: {
+      navProducts: 'Bidhaa',
+      navServices: 'Huduma',
+      navElimu: 'Elimu',
+      navDrTaz: 'Dr Taz',
+      navFaq: 'Maswali',
+      navContact: 'Mawasiliano',
+      bookBtn: 'Panga miadi',
+      navPrivacy: 'Sera ya Faragha',
+      elimuEyebrow: 'ELIMU',
+      elimuTitle: 'Elimu ya Afya',
+      elimuSub: 'Mafundisho, vidokezo na elimu ya afya kutoka kwa Dr Taz Genius kwa jamii.',
+      elimuVideosHeading: 'Video za Hivi Karibuni',
+      elimuVideosSub: 'Video mpya kutoka TAZ GENIUS TV zinaonekana hapa moja kwa moja.',
+      elimuChannelLink: 'Fungua Channel Yetu ya YouTube →',
+      elimuArticlesHeading: 'Makala Fupi za Afya',
+      elimuArticlesSub: 'Vidokezo rahisi vya kila siku. Hii ni elimu ya jumla, si mbadala wa ushauri wa daktari.',
+      elimuNote: 'Kumbuka: Makala hizi ni za awali na za jumla. Zinaweza kubadilishwa na mafundisho ya Dr Taz yenyewe kadri unavyoandaa maudhui yako mwenyewe.',
+      artReadMore: 'Soma zaidi ↓',
+      artReadLess: 'Funga ↑',
+      "art1Tag": 'Usalama',
+      "art1Title": 'Matumizi Salama ya Dawa za Asili',
+      "art1Lead": 'Dawa za asili zinaweza kuwa msaada mzuri, lakini kama dawa yoyote, zinahitaji matumizi sahihi.',
+      "art1P0": 'Soma na ufuate maelekezo ya matumizi kila mara — usiongeze kipimo bila ushauri.',
+      "art1P1": 'Mwambie daktari wako kama unatumia dawa za asili pamoja na dawa za hospitalini.',
+      "art1P2": 'Kama una ujauzito, unanyonyesha, una magonjwa sugu au unampa mtoto, uliza ushauri kabla ya kutumia.',
+      "art1P3": 'Hifadhi dawa mahali pakavu, penye ubaridi, mbali na watoto na jua kali.',
+      "art1P4": 'Ukiona dalili zisizo za kawaida (upele, kizunguzungu, kutapika), acha kutumia na utafute ushauri wa kitaalamu.',
+      "art2Tag": 'Lishe',
+      "art2Title": 'Lishe Bora kwa Afya ya Kila Siku',
+      "art2Lead": 'Afya njema huanza na kile unachokula kila siku. Mabadiliko madogo yanaleta tofauti kubwa.',
+      "art2P0": 'Kula mboga za majani na matunda kila siku, kwa rangi tofauti.',
+      "art2P1": 'Chagua nafaka zisizokobolewa (dona, mtama, uwele) badala ya vyakula vilivyosindikwa sana.',
+      "art2P2": 'Punguza sukari nyingi, chumvi nyingi na vyakula vya kukaanga mara kwa mara.',
+      "art2P3": 'Kula kwa nyakati zinazofanana na epuka kuruka mlo, hasa kifungua kinywa.',
+      "art2P4": 'Jumuisha maharage, dengu, samaki au nyama isiyo na mafuta mengi kwa protini.',
+      "art3Tag": 'Maisha',
+      "art3Title": 'Maji, Usingizi na Mazoezi',
+      "art3Lead": 'Misingi mitatu rahisi ambayo huimarisha afya yako bila gharama kubwa.',
+      "art3P0": 'Kunywa maji ya kutosha siku nzima — usisubiri kiu ikuume sana.',
+      "art3P1": 'Lala saa 7 hadi 8 kwa usiku kwa mtu mzima, na jaribu kulala na kuamka kwa muda unaofanana.',
+      "art3P2": 'Tembea au fanya mazoezi mepesi angalau dakika 30 kwa siku nyingi za wiki.',
+      "art3P3": 'Punguza msongo wa mawazo kwa kupumzika, maombi/tafakari, au kuzungumza na mtu unayemwamini.',
+      "art4Tag": 'Muhimu',
+      "art4Title": 'Lini Uende Hospitali Haraka',
+      "art4Lead": 'Dawa za asili hazichukui nafasi ya huduma ya dharura. Dalili hizi zinahitaji hospitali mara moja.',
+      "art4P0": 'Kushindwa kupumua au maumivu makali ya kifua.',
+      "art4P1": 'Homa kali inayoendelea, hasa ikiambatana na kuchanganyikiwa au shingo ngumu.',
+      "art4P2": 'Kutapika au kuharisha damu, au upungufu mkubwa wa maji mwilini.',
+      "art4P3": 'Maumivu makali ya tumbo yanayoanza ghafla.',
+      "art4P4": 'Dalili yoyote isiyo ya kawaida wakati wa ujauzito, kama kutoka damu au maumivu makali.',
+      "art4P5": 'Mtoto mdogo asiyekula, asiyeamka vizuri au mwenye homa kali.',
+    },
+    en: {
+      navProducts: 'Products',
+      navServices: 'Services',
+      navElimu: 'Learn',
+      navDrTaz: 'Dr Taz',
+      navFaq: 'FAQ',
+      navContact: 'Contact',
+      bookBtn: 'Book Appointment',
+      navPrivacy: 'Privacy Policy',
+      elimuEyebrow: 'LEARN',
+      elimuTitle: 'Health Education',
+      elimuSub: "Teachings, tips, and health education from Dr Taz Genius for the community.",
+      elimuVideosHeading: 'Latest Videos',
+      elimuVideosSub: 'New videos from TAZ GENIUS TV appear here automatically.',
+      elimuChannelLink: 'Visit our YouTube channel →',
+      elimuArticlesHeading: 'Short Health Articles',
+      elimuArticlesSub: 'Simple everyday tips. This is general education, not a substitute for medical advice.',
+      elimuNote: "Note: these articles are starter, general-purpose content. They can be replaced with Dr Taz's own teachings as you build out your own material.",
+      artReadMore: 'Read more ↓',
+      artReadLess: 'Close ↑',
+      "art1Tag": 'Safety',
+      "art1Title": 'Using Natural Remedies Safely',
+      "art1Lead": 'Natural remedies can be a helpful support, but like any medicine, they need to be used correctly.',
+      "art1P0": "Always read and follow the usage instructions — don't increase the dose without advice.",
+      "art1P1": "Tell your doctor if you're using natural remedies alongside hospital medication.",
+      "art1P2": "If you're pregnant, breastfeeding, have a chronic condition, or are giving it to a child, ask for advice first.",
+      "art1P3": 'Store remedies somewhere dry and cool, away from children and direct sunlight.',
+      "art1P4": 'If you notice unusual symptoms (rash, dizziness, vomiting), stop using it and seek professional advice.',
+      "art2Tag": 'Nutrition',
+      "art2Title": 'Everyday Nutrition Basics',
+      "art2Lead": 'Good health starts with what you eat every day. Small changes make a big difference.',
+      "art2P0": 'Eat leafy greens and fruit every day, in a variety of colours.',
+      "art2P1": 'Choose whole grains (whole-grain maize, sorghum, millet) over heavily processed foods.',
+      "art2P2": 'Cut back on excess sugar, salt, and frequently fried food.',
+      "art2P3": 'Eat at regular times and avoid skipping meals, especially breakfast.',
+      "art2P4": 'Include beans, lentils, fish, or lean meat for protein.',
+      "art3Tag": 'Lifestyle',
+      "art3Title": 'Water, Sleep and Movement',
+      "art3Lead": 'Three simple foundations that support your health without much cost.',
+      "art3P0": "Drink enough water through the day — don't wait until you're very thirsty.",
+      "art3P1": 'Aim for 7 to 8 hours of sleep a night as an adult, at consistent times.',
+      "art3P2": 'Walk or do light exercise for at least 30 minutes on most days of the week.',
+      "art3P3": 'Manage stress through rest, prayer/reflection, or talking to someone you trust.',
+      "art4Tag": 'Important',
+      "art4Title": 'When to Seek Medical Care Urgently',
+      "art4Lead": 'Natural remedies are not a substitute for emergency care. These signs need a hospital right away.',
+      "art4P0": 'Difficulty breathing or severe chest pain.',
+      "art4P1": 'A high, persistent fever, especially with confusion or a stiff neck.',
+      "art4P2": 'Vomiting or passing blood, or severe dehydration.',
+      "art4P3": 'Sudden, severe stomach pain.',
+      "art4P4": 'Any unusual symptom during pregnancy, such as bleeding or severe pain.',
+      "art4P5": "A young child who won't feed, is hard to wake, or has a high fever.",
+    }
+  };
+
+  var textNodes = document.querySelectorAll('[data-i18n]');
+  var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+  var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var btnSw = document.getElementById('langSw');
+  var btnEn = document.getElementById('langEn');
+
+  function setLang(lang){
+    var dict = translations[lang];
+    textNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    htmlNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    placeholderNodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    btnSw.classList.toggle('active', lang === 'sw');
+    btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('tazgenius-lang', lang); } catch(e){}
+  }
+
+  btnSw.addEventListener('click', function(){ setLang('sw'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  var saved = 'sw';
+  try { saved = localStorage.getItem('tazgenius-lang') || 'sw'; } catch(e){}
+  setLang(saved);
+})();
+
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var wrap = document.getElementById('navWrap');
+  if (!toggle || !wrap) return;
+  toggle.addEventListener('click', function(){
+    var open = wrap.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  wrap.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ wrap.classList.remove('open'); });
+  });
+})();
+
+(function(){
+  var cards = document.querySelectorAll('.article-card');
+  cards.forEach(function(card){
+    var btn = card.querySelector('.article-toggle');
+    btn.addEventListener('click', function(){
+      var open = card.classList.toggle('open');
+      // swap label manually (data-i18n text is reapplied on language change)
+      var lang = document.documentElement.lang === 'en' ? 'en' : 'sw';
+      var labels = {
+        sw: { more: 'Soma zaidi ↓', less: 'Funga ↑' },
+        en: { more: 'Read more ↓', less: 'Close ↑' }
+      };
+      btn.textContent = open ? labels[lang].less : labels[lang].more;
+      btn.setAttribute('data-i18n', open ? 'artReadLess' : 'artReadMore');
+    });
+  });
+})();
+
+</script>
+
+</body>
+</html>
